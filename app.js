@@ -24,6 +24,9 @@ app.get("/", (req, res) => {
 app.get("/blog", (req, res) => {
   res.sendFile(__dirname + "/views/blog.html");
 });
+app.get("*", (req, res) => {
+  res.status(404).sendFile(__dirname + "/views/not-found.html");
+});
 
 app.get("/api/projects", (req, res) => {
   res.json(projects);
